@@ -6,3 +6,6 @@ out.*
 
 #Data file
 *.csv
+
+#tar
+*.tar
