@@ -470,9 +470,7 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
   if (lookup) {
 
     /* cm->hit++; */
-
     /* printf("hit %s\n", lookup->md5); */
-
     if (lookup->state == &cm->mru || lookup->state == &cm->mfu) {
       /* printf("== 01 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
       ARC_move(cm, lookup, &cm->mfu);

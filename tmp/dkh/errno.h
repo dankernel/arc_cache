@@ -1,3 +1,0 @@
-
-
-#define EARG_NULL -0x0000001
