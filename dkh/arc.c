@@ -271,8 +271,8 @@ int contain_list(struct cache_mem *cm, struct cache_line *l)
 struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) 
 {/*{{{*/
 
-  /* printf("this %p %p %p %ld ", &l->head, &l->hash, l, l->line); */
-  /* contain_list(cm, l); */
+  printf("this %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+  contain_list(cm, l);
 
   //이미 있는거 제거..//
   if (l->state) {
@@ -284,8 +284,8 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
   // 그냥 제거..//
   if (state == NULL) {
     /* destroy */
-    /* printf("del %ld ", l->line); */
-    /* contain_list(cm, l); */
+    printf("del %ld ", l->line);
+    contain_list(cm, l);
 
     l->line = 0;
     l->state = NULL;
@@ -299,8 +299,8 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     if (state == &cm->mrug || state == &cm->mfug) {
 
     } else if (l->state != &cm->mru && l->state != &cm->mfu) {
-      /* printf("bal %p %p %p %ld ", &l->head, &l->hash, l, l->line); */
-      /* contain_list(cm, l); */
+      printf("bal %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+      contain_list(cm, l);
       ARC_balance(cm, 1);
     }
 
@@ -308,10 +308,10 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     l->state = state;
     l->state->size += 1;
 
-    /* printf("move %p %p %p %ld ", &l->head, &l->hash, l, l->line); */
-    /* contain_list(cm, l); */
+    printf("move %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+    contain_list(cm, l);
 
-    /* printf("move %p ok. head : %p / size : %lu / val : %ld \n", l, &state->head, l->state->size, l->line); */
+    printf("move %p ok. head : %p / size : %lu / val : %ld \n", l, &state->head, l->state->size, l->line);
 
   }
   return l;
@@ -472,26 +472,26 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     /* cm->hit++; */
     /* printf("hit %s\n", lookup->md5); */
     if (lookup->state == &cm->mru || lookup->state == &cm->mfu) {
-      /* printf("== 01 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+      printf("== 01 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else if (lookup->state == &cm->mrug) {
-      /* printf("== 02 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
-      /* contain_list(cm, lookup); */
+      printf("== 02 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
+      contain_list(cm, lookup);
       
-      if (cm->mrug.size == 0) {
-        /* printf("lookup state list ...\n"); */
-        /* contain_list(cm, lookup); */
-        /* ARC_print(&(lookup->state->head)); */
-      }
+      /* if (cm->mrug.size == 0) { */
+      /*   printf("lookup state list ...\n"); */
+      /*   contain_list(cm, lookup); */
+      /*   ARC_print(&(lookup->state->head)); */
+      /* } */
 
-      /* printf("chp1 : %ld \n", cm->p); */
+      printf("chp1 : %ld \n", cm->p);
       cm->p = MIN(cm->c, cm->p + MAX(cm->mfug.size / cm->mrug.size, 1));
-      /* printf("chp2 : %ld \n", cm->p); */
+      printf("chp2 : %ld \n", cm->p);
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else if (lookup->state == &cm->mfug) {
-      /* printf("== 03 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+      printf("== 03 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
 
       /* printf("chp1 : %ld, test : %ld\n", cm->p, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1)); */
       cm->p = MAX(0, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1));
@@ -504,7 +504,7 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     }
   } else {
 
-    /* printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+    printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
     new = create_line(line);
     if (!new)
       return NULL;
