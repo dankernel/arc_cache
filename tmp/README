@@ -1,0 +1,36 @@
+
+00. Index 
+README  
+  This file.
+
+01. CODE
+main.c  
+  contain main function.
+  main code.
+main  
+  main FLE file.
+compile.sh  
+  complie and run ELF file.
+dkh  
+  contain library files.
+  LRU, list, etc, ...
+data  
+  contain data files.
+  *.csv files.
+tags
+  ctag file.
+gmon.out  
+  debug file. 
+
+02. Doxygen 
+Doxyfile  
+  doxygen config file.
+doc  
+  doxygen result.
+
+03. Result
+gnu  
+  gnupolt files.
+out
+  result log data.
+

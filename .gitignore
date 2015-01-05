@@ -1,0 +1,8 @@
+#Out file
+out
+*.out
+out.*
+*/out/
+
+#Data file
+*.csv
