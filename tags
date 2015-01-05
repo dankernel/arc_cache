@@ -5,81 +5,43 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ARC_balance	dkh/arc.c	/^static void ARC_balance(struct cache_mem *cm, unsigned long size)$/;"	f	file:
-ARC_balance	tmp/dkh/arc.c	/^static void ARC_balance(struct cache_mem *cm, unsigned long size)$/;"	f	file:
 ARC_cache	dkh/arc.c	/^struct cache_line *ARC_cache(struct cache_mem *cm, long line)$/;"	f
-ARC_cache	tmp/dkh/arc.c	/^struct cache_line *ARC_cache(struct cache_mem *cm, long line)$/;"	f
 ARC_lookup	dkh/arc.c	/^static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long line)$/;"	f	file:
-ARC_lookup	tmp/dkh/arc.c	/^static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long line)$/;"	f	file:
 ARC_move	dkh/arc.c	/^struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) $/;"	f
-ARC_move	tmp/dkh/arc.c	/^struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) $/;"	f
 ARC_print	dkh/arc.c	/^static inline struct cache_line *ARC_print(struct list_head *start)$/;"	f	file:
-ARC_print	tmp/dkh/arc.c	/^static inline struct cache_line *ARC_print(struct list_head *start)$/;"	f	file:
 ARC_state_lru	dkh/arc.c	/^struct cache_line *ARC_state_lru(struct cache_state *state)$/;"	f
-ARC_state_lru	tmp/dkh/arc.c	/^static struct cache_line *ARC_state_lru(struct cache_state *state)$/;"	f	file:
 BYTE_ORDER	dkh/md5.c	57;"	d	file:
 BYTE_ORDER	dkh/md5.c	59;"	d	file:
 BYTE_ORDER	dkh/md5.c	61;"	d	file:
-BYTE_ORDER	tmp/dkh/md5.c	57;"	d	file:
-BYTE_ORDER	tmp/dkh/md5.c	59;"	d	file:
-BYTE_ORDER	tmp/dkh/md5.c	61;"	d	file:
 CACHE_BLOCK_SIZE	dkh/arc.c	47;"	d	file:
 CACHE_BLOCK_SIZE	dkh/lru.h	33;"	d
-CACHE_BLOCK_SIZE	tmp/dkh/arc.c	47;"	d	file:
-CACHE_BLOCK_SIZE	tmp/dkh/lru.h	33;"	d
 CACHE_LEN	dkh/arc.c	49;"	d	file:
 CACHE_LEN	dkh/lru.h	35;"	d
-CACHE_LEN	tmp/dkh/arc.c	49;"	d	file:
-CACHE_LEN	tmp/dkh/lru.h	35;"	d
 CACHE_SIZE	dkh/arc.c	48;"	d	file:
 CACHE_SIZE	dkh/lru.h	34;"	d
-CACHE_SIZE	tmp/dkh/arc.c	48;"	d	file:
-CACHE_SIZE	tmp/dkh/lru.h	34;"	d
 DEBUG_OPTION	dkh/arc.c	51;"	d	file:
 DEBUG_OPTION	dkh/lru.h	37;"	d
-DEBUG_OPTION	tmp/dkh/arc.c	51;"	d	file:
-DEBUG_OPTION	tmp/dkh/lru.h	37;"	d
 EARG_NULL	dkh/errno.h	3;"	d
-EARG_NULL	tmp/dkh/errno.h	3;"	d
 F	dkh/md5.c	201;"	d	file:
-F	tmp/dkh/md5.c	201;"	d	file:
 G	dkh/md5.c	227;"	d	file:
-G	tmp/dkh/md5.c	227;"	d	file:
 GB	dkh/arc.c	44;"	d	file:
 GB	dkh/lru.h	30;"	d
-GB	tmp/dkh/arc.c	44;"	d	file:
-GB	tmp/dkh/lru.h	30;"	d
 GOLDEN_RATIO_PRIME_32	dkh/hash.h	24;"	d
-GOLDEN_RATIO_PRIME_32	tmp/dkh/hash.h	24;"	d
 H	dkh/md5.c	253;"	d	file:
-H	tmp/dkh/md5.c	253;"	d	file:
 I	dkh/md5.c	279;"	d	file:
-I	tmp/dkh/md5.c	279;"	d	file:
 KB	dkh/arc.c	42;"	d	file:
 KB	dkh/lru.h	28;"	d
-KB	tmp/dkh/arc.c	42;"	d	file:
-KB	tmp/dkh/lru.h	28;"	d
 LRU_cache	dkh/lru.h	/^int LRU_cache(struct cache_mem *cm, double line)$/;"	f
-LRU_cache	tmp/dkh/lru.h	/^int LRU_cache(struct cache_mem *cm, double line)$/;"	f
 LRU_lookup	dkh/lru.h	/^static inline struct cache_line *LRU_lookup(struct cache_mem *cm, long line)$/;"	f
-LRU_lookup	tmp/dkh/lru.h	/^static inline struct cache_line *LRU_lookup(struct cache_mem *cm, long line)$/;"	f
 LRU_read	dkh/lru.h	/^int LRU_read(struct cache_mem *cm, double line)$/;"	f
-LRU_read	tmp/dkh/lru.h	/^int LRU_read(struct cache_mem *cm, double line)$/;"	f
 MAX	dkh/arc.c	34;"	d	file:
-MAX	tmp/dkh/arc.c	34;"	d	file:
 MB	dkh/arc.c	43;"	d	file:
 MB	dkh/lru.h	29;"	d
-MB	tmp/dkh/arc.c	43;"	d	file:
-MB	tmp/dkh/lru.h	29;"	d
 MIN	dkh/arc.c	35;"	d	file:
-MIN	tmp/dkh/arc.c	35;"	d	file:
 READ	dkh/arc.c	38;"	d	file:
 READ	dkh/lru.h	24;"	d
-READ	tmp/dkh/arc.c	38;"	d	file:
-READ	tmp/dkh/lru.h	24;"	d
 RELOC_HIDE	dkh/compiler.h	69;"	d
-RELOC_HIDE	tmp/dkh/compiler.h	69;"	d
 ROTATE_LEFT	dkh/md5.c	196;"	d	file:
-ROTATE_LEFT	tmp/dkh/md5.c	196;"	d	file:
 SET	dkh/md5.c	202;"	d	file:
 SET	dkh/md5.c	222;"	d	file:
 SET	dkh/md5.c	228;"	d	file:
@@ -88,474 +50,235 @@ SET	dkh/md5.c	254;"	d	file:
 SET	dkh/md5.c	274;"	d	file:
 SET	dkh/md5.c	280;"	d	file:
 SET	dkh/md5.c	300;"	d	file:
-SET	tmp/dkh/md5.c	202;"	d	file:
-SET	tmp/dkh/md5.c	222;"	d	file:
-SET	tmp/dkh/md5.c	228;"	d	file:
-SET	tmp/dkh/md5.c	248;"	d	file:
-SET	tmp/dkh/md5.c	254;"	d	file:
-SET	tmp/dkh/md5.c	274;"	d	file:
-SET	tmp/dkh/md5.c	280;"	d	file:
-SET	tmp/dkh/md5.c	300;"	d	file:
 T1	dkh/md5.c	65;"	d	file:
-T1	tmp/dkh/md5.c	65;"	d	file:
 T10	dkh/md5.c	74;"	d	file:
-T10	tmp/dkh/md5.c	74;"	d	file:
 T11	dkh/md5.c	75;"	d	file:
-T11	tmp/dkh/md5.c	75;"	d	file:
 T12	dkh/md5.c	76;"	d	file:
-T12	tmp/dkh/md5.c	76;"	d	file:
 T13	dkh/md5.c	77;"	d	file:
-T13	tmp/dkh/md5.c	77;"	d	file:
 T14	dkh/md5.c	78;"	d	file:
-T14	tmp/dkh/md5.c	78;"	d	file:
 T15	dkh/md5.c	79;"	d	file:
-T15	tmp/dkh/md5.c	79;"	d	file:
 T16	dkh/md5.c	80;"	d	file:
-T16	tmp/dkh/md5.c	80;"	d	file:
 T17	dkh/md5.c	81;"	d	file:
-T17	tmp/dkh/md5.c	81;"	d	file:
 T18	dkh/md5.c	82;"	d	file:
-T18	tmp/dkh/md5.c	82;"	d	file:
 T19	dkh/md5.c	83;"	d	file:
-T19	tmp/dkh/md5.c	83;"	d	file:
 T2	dkh/md5.c	66;"	d	file:
-T2	tmp/dkh/md5.c	66;"	d	file:
 T20	dkh/md5.c	84;"	d	file:
-T20	tmp/dkh/md5.c	84;"	d	file:
 T21	dkh/md5.c	85;"	d	file:
-T21	tmp/dkh/md5.c	85;"	d	file:
 T22	dkh/md5.c	86;"	d	file:
-T22	tmp/dkh/md5.c	86;"	d	file:
 T23	dkh/md5.c	87;"	d	file:
-T23	tmp/dkh/md5.c	87;"	d	file:
 T24	dkh/md5.c	88;"	d	file:
-T24	tmp/dkh/md5.c	88;"	d	file:
 T25	dkh/md5.c	89;"	d	file:
-T25	tmp/dkh/md5.c	89;"	d	file:
 T26	dkh/md5.c	90;"	d	file:
-T26	tmp/dkh/md5.c	90;"	d	file:
 T27	dkh/md5.c	91;"	d	file:
-T27	tmp/dkh/md5.c	91;"	d	file:
 T28	dkh/md5.c	92;"	d	file:
-T28	tmp/dkh/md5.c	92;"	d	file:
 T29	dkh/md5.c	93;"	d	file:
-T29	tmp/dkh/md5.c	93;"	d	file:
 T3	dkh/md5.c	67;"	d	file:
-T3	tmp/dkh/md5.c	67;"	d	file:
 T30	dkh/md5.c	94;"	d	file:
-T30	tmp/dkh/md5.c	94;"	d	file:
 T31	dkh/md5.c	95;"	d	file:
-T31	tmp/dkh/md5.c	95;"	d	file:
 T32	dkh/md5.c	96;"	d	file:
-T32	tmp/dkh/md5.c	96;"	d	file:
 T33	dkh/md5.c	97;"	d	file:
-T33	tmp/dkh/md5.c	97;"	d	file:
 T34	dkh/md5.c	98;"	d	file:
-T34	tmp/dkh/md5.c	98;"	d	file:
 T35	dkh/md5.c	99;"	d	file:
-T35	tmp/dkh/md5.c	99;"	d	file:
 T36	dkh/md5.c	100;"	d	file:
-T36	tmp/dkh/md5.c	100;"	d	file:
 T37	dkh/md5.c	101;"	d	file:
-T37	tmp/dkh/md5.c	101;"	d	file:
 T38	dkh/md5.c	102;"	d	file:
-T38	tmp/dkh/md5.c	102;"	d	file:
 T39	dkh/md5.c	103;"	d	file:
-T39	tmp/dkh/md5.c	103;"	d	file:
 T4	dkh/md5.c	68;"	d	file:
-T4	tmp/dkh/md5.c	68;"	d	file:
 T40	dkh/md5.c	104;"	d	file:
-T40	tmp/dkh/md5.c	104;"	d	file:
 T41	dkh/md5.c	105;"	d	file:
-T41	tmp/dkh/md5.c	105;"	d	file:
 T42	dkh/md5.c	106;"	d	file:
-T42	tmp/dkh/md5.c	106;"	d	file:
 T43	dkh/md5.c	107;"	d	file:
-T43	tmp/dkh/md5.c	107;"	d	file:
 T44	dkh/md5.c	108;"	d	file:
-T44	tmp/dkh/md5.c	108;"	d	file:
 T45	dkh/md5.c	109;"	d	file:
-T45	tmp/dkh/md5.c	109;"	d	file:
 T46	dkh/md5.c	110;"	d	file:
-T46	tmp/dkh/md5.c	110;"	d	file:
 T47	dkh/md5.c	111;"	d	file:
-T47	tmp/dkh/md5.c	111;"	d	file:
 T48	dkh/md5.c	112;"	d	file:
-T48	tmp/dkh/md5.c	112;"	d	file:
 T49	dkh/md5.c	113;"	d	file:
-T49	tmp/dkh/md5.c	113;"	d	file:
 T5	dkh/md5.c	69;"	d	file:
-T5	tmp/dkh/md5.c	69;"	d	file:
 T50	dkh/md5.c	114;"	d	file:
-T50	tmp/dkh/md5.c	114;"	d	file:
 T51	dkh/md5.c	115;"	d	file:
-T51	tmp/dkh/md5.c	115;"	d	file:
 T52	dkh/md5.c	116;"	d	file:
-T52	tmp/dkh/md5.c	116;"	d	file:
 T53	dkh/md5.c	117;"	d	file:
-T53	tmp/dkh/md5.c	117;"	d	file:
 T54	dkh/md5.c	118;"	d	file:
-T54	tmp/dkh/md5.c	118;"	d	file:
 T55	dkh/md5.c	119;"	d	file:
-T55	tmp/dkh/md5.c	119;"	d	file:
 T56	dkh/md5.c	120;"	d	file:
-T56	tmp/dkh/md5.c	120;"	d	file:
 T57	dkh/md5.c	121;"	d	file:
-T57	tmp/dkh/md5.c	121;"	d	file:
 T58	dkh/md5.c	122;"	d	file:
-T58	tmp/dkh/md5.c	122;"	d	file:
 T59	dkh/md5.c	123;"	d	file:
-T59	tmp/dkh/md5.c	123;"	d	file:
 T6	dkh/md5.c	70;"	d	file:
-T6	tmp/dkh/md5.c	70;"	d	file:
 T60	dkh/md5.c	124;"	d	file:
-T60	tmp/dkh/md5.c	124;"	d	file:
 T61	dkh/md5.c	125;"	d	file:
-T61	tmp/dkh/md5.c	125;"	d	file:
 T62	dkh/md5.c	126;"	d	file:
-T62	tmp/dkh/md5.c	126;"	d	file:
 T63	dkh/md5.c	127;"	d	file:
-T63	tmp/dkh/md5.c	127;"	d	file:
 T64	dkh/md5.c	128;"	d	file:
-T64	tmp/dkh/md5.c	128;"	d	file:
 T7	dkh/md5.c	71;"	d	file:
-T7	tmp/dkh/md5.c	71;"	d	file:
 T8	dkh/md5.c	72;"	d	file:
-T8	tmp/dkh/md5.c	72;"	d	file:
 T9	dkh/md5.c	73;"	d	file:
-T9	tmp/dkh/md5.c	73;"	d	file:
 T_MASK	dkh/md5.c	64;"	d	file:
-T_MASK	tmp/dkh/md5.c	64;"	d	file:
 WRITE	dkh/arc.c	39;"	d	file:
 WRITE	dkh/lru.h	25;"	d
-WRITE	tmp/dkh/arc.c	39;"	d	file:
-WRITE	tmp/dkh/lru.h	25;"	d
 __LINUX_COMPILER_H	dkh/compiler.h	2;"	d
-__LINUX_COMPILER_H	tmp/dkh/compiler.h	2;"	d
 __acquire	dkh/compiler.h	15;"	d
 __acquire	dkh/compiler.h	32;"	d
-__acquire	tmp/dkh/compiler.h	15;"	d
-__acquire	tmp/dkh/compiler.h	32;"	d
 __acquires	dkh/compiler.h	13;"	d
 __acquires	dkh/compiler.h	30;"	d
-__acquires	tmp/dkh/compiler.h	13;"	d
-__acquires	tmp/dkh/compiler.h	30;"	d
 __always_inline	dkh/compiler.h	154;"	d
-__always_inline	tmp/dkh/compiler.h	154;"	d
 __attribute_const__	dkh/compiler.h	174;"	d
-__attribute_const__	tmp/dkh/compiler.h	174;"	d
 __attribute_pure__	dkh/compiler.h	146;"	d
-__attribute_pure__	tmp/dkh/compiler.h	146;"	d
 __attribute_used__	dkh/compiler.h	124;"	d
-__attribute_used__	tmp/dkh/compiler.h	124;"	d
 __builtin_warning	dkh/compiler.h	29;"	d
-__builtin_warning	tmp/dkh/compiler.h	29;"	d
 __chk_io_ptr	dkh/compiler.h	28;"	d
-__chk_io_ptr	tmp/dkh/compiler.h	28;"	d
 __chk_user_ptr	dkh/compiler.h	27;"	d
-__chk_user_ptr	tmp/dkh/compiler.h	27;"	d
 __cold	dkh/compiler.h	183;"	d
-__cold	tmp/dkh/compiler.h	183;"	d
 __cond_lock	dkh/compiler.h	17;"	d
 __cond_lock	dkh/compiler.h	34;"	d
-__cond_lock	tmp/dkh/compiler.h	17;"	d
-__cond_lock	tmp/dkh/compiler.h	34;"	d
 __deprecated	dkh/compiler.h	87;"	d
-__deprecated	tmp/dkh/compiler.h	87;"	d
 __deprecated_for_modules	dkh/compiler.h	91;"	d
 __deprecated_for_modules	dkh/compiler.h	93;"	d
-__deprecated_for_modules	tmp/dkh/compiler.h	91;"	d
-__deprecated_for_modules	tmp/dkh/compiler.h	93;"	d
 __force	dkh/compiler.h	10;"	d
 __force	dkh/compiler.h	24;"	d
-__force	tmp/dkh/compiler.h	10;"	d
-__force	tmp/dkh/compiler.h	24;"	d
 __iomem	dkh/compiler.h	12;"	d
 __iomem	dkh/compiler.h	26;"	d
-__iomem	tmp/dkh/compiler.h	12;"	d
-__iomem	tmp/dkh/compiler.h	26;"	d
 __kernel	dkh/compiler.h	22;"	d
 __kernel	dkh/compiler.h	8;"	d
-__kernel	tmp/dkh/compiler.h	22;"	d
-__kernel	tmp/dkh/compiler.h	8;"	d
 __list_add	dkh/dk_list.h	/^static inline void __list_add(struct list_head *new,$/;"	f
-__list_add	tmp/dkh/dk_list.h	/^static inline void __list_add(struct list_head *new,$/;"	f
 __list_del	dkh/dk_list.h	/^static inline void __list_del(struct list_head *prev, struct list_head *next)$/;"	f
-__list_del	tmp/dkh/dk_list.h	/^static inline void __list_del(struct list_head *prev, struct list_head *next)$/;"	f
 __maybe_unused	dkh/compiler.h	132;"	d
-__maybe_unused	tmp/dkh/compiler.h	132;"	d
 __must_check	dkh/compiler.h	101;"	d
 __must_check	dkh/compiler.h	102;"	d
 __must_check	dkh/compiler.h	97;"	d
-__must_check	tmp/dkh/compiler.h	101;"	d
-__must_check	tmp/dkh/compiler.h	102;"	d
-__must_check	tmp/dkh/compiler.h	97;"	d
 __nocast	dkh/compiler.h	11;"	d
 __nocast	dkh/compiler.h	25;"	d
-__nocast	tmp/dkh/compiler.h	11;"	d
-__nocast	tmp/dkh/compiler.h	25;"	d
 __release	dkh/compiler.h	16;"	d
 __release	dkh/compiler.h	33;"	d
-__release	tmp/dkh/compiler.h	16;"	d
-__release	tmp/dkh/compiler.h	33;"	d
 __releases	dkh/compiler.h	14;"	d
 __releases	dkh/compiler.h	31;"	d
-__releases	tmp/dkh/compiler.h	14;"	d
-__releases	tmp/dkh/compiler.h	31;"	d
 __safe	dkh/compiler.h	23;"	d
 __safe	dkh/compiler.h	9;"	d
-__safe	tmp/dkh/compiler.h	23;"	d
-__safe	tmp/dkh/compiler.h	9;"	d
 __used	dkh/compiler.h	128;"	d
-__used	tmp/dkh/compiler.h	128;"	d
 __user	dkh/compiler.h	21;"	d
 __user	dkh/compiler.h	7;"	d
-__user	tmp/dkh/compiler.h	21;"	d
-__user	tmp/dkh/compiler.h	7;"	d
 abcd	dkh/md5.h	/^    md5_word_t abcd[4];		\/* digest buffer *\/$/;"	m	struct:md5_state_s
-abcd	tmp/dkh/md5.h	/^    md5_word_t abcd[4];		\/* digest buffer *\/$/;"	m	struct:md5_state_s
 add_hash_table	dkh/hash.h	/^int add_hash_table(struct hash_table *ht, unsigned int val)$/;"	f
-add_hash_table	tmp/dkh/hash.h	/^int add_hash_table(struct hash_table *ht, unsigned int val)$/;"	f
 arc_hash	dkh/arc.c	/^struct arc_hash$/;"	s	file:
-arc_hash	tmp/dkh/arc.c	/^struct arc_hash$/;"	s	file:
 atonum	dkh/arc.c	/^unsigned long atonum(char *c)$/;"	f
-atonum	tmp/dkh/arc.c	/^unsigned long atonum(char *c)$/;"	f
 barrier	dkh/compiler.h	65;"	d
-barrier	tmp/dkh/compiler.h	65;"	d
 bucket	dkh/arc.c	/^  struct list_head *bucket;$/;"	m	struct:arc_hash	typeref:struct:arc_hash::list_head	file:
-bucket	tmp/dkh/arc.c	/^  struct list_head *bucket;$/;"	m	struct:arc_hash	typeref:struct:arc_hash::list_head	file:
 buf	dkh/md5.h	/^    md5_byte_t buf[64];		\/* accumulate block *\/$/;"	m	struct:md5_state_s
-buf	tmp/dkh/md5.h	/^    md5_byte_t buf[64];		\/* accumulate block *\/$/;"	m	struct:md5_state_s
 c	dkh/arc.c	/^  long c, p;$/;"	m	struct:cache_mem	file:
-c	tmp/dkh/arc.c	/^  unsigned long c, p;$/;"	m	struct:cache_mem	file:
 cache_line	dkh/arc.c	/^struct cache_line$/;"	s	file:
 cache_line	dkh/lru.h	/^struct cache_line$/;"	s
-cache_line	tmp/dkh/arc.c	/^struct cache_line$/;"	s	file:
-cache_line	tmp/dkh/lru.h	/^struct cache_line$/;"	s
 cache_mem	dkh/arc.c	/^struct cache_mem$/;"	s	file:
 cache_mem	dkh/lru.h	/^struct cache_mem$/;"	s
-cache_mem	tmp/dkh/arc.c	/^struct cache_mem$/;"	s	file:
-cache_mem	tmp/dkh/lru.h	/^struct cache_mem$/;"	s
 cache_state	dkh/arc.c	/^struct cache_state$/;"	s	file:
-cache_state	tmp/dkh/arc.c	/^struct cache_state$/;"	s	file:
 contain_list	dkh/arc.c	/^int contain_list(struct cache_mem *cm, struct cache_line *l)$/;"	f
 container_of	dkh/dk_list.h	29;"	d
-container_of	tmp/dkh/dk_list.h	29;"	d
 count	dkh/md5.h	/^    md5_word_t count[2];	\/* message length in bits, lsw first *\/$/;"	m	struct:md5_state_s
-count	tmp/dkh/md5.h	/^    md5_word_t count[2];	\/* message length in bits, lsw first *\/$/;"	m	struct:md5_state_s
 create_line	dkh/arc.c	/^static struct cache_line *create_line(double line)$/;"	f	file:
-create_line	tmp/dkh/arc.c	/^static struct cache_line *create_line(double line)$/;"	f	file:
 del_cm	dkh/arc.c	/^int del_cm(struct cache_mem *cm)$/;"	f
 del_cm	dkh/lru.h	/^int del_cm(struct cache_mem *cm)$/;"	f
-del_cm	tmp/dkh/arc.c	/^int del_cm(struct cache_mem *cm)$/;"	f
-del_cm	tmp/dkh/lru.h	/^int del_cm(struct cache_mem *cm)$/;"	f
 disk_num	dkh/arc.c	/^  int disk_num;$/;"	m	struct:workload	file:
 disk_num	dkh/lru.h	/^  int disk_num;$/;"	m	struct:workload
-disk_num	tmp/dkh/arc.c	/^  int disk_num;$/;"	m	struct:workload	file:
-disk_num	tmp/dkh/lru.h	/^  int disk_num;$/;"	m	struct:workload
 dk_list	dkh/dk_list.h	25;"	d
-dk_list	tmp/dkh/dk_list.h	25;"	d
 err_test	dkh/print_msg.h	24;"	d
-err_test	tmp/dkh/print_msg.h	24;"	d
 get_hash	dkh/arc.c	/^static int *get_hash(char *ret, double test)$/;"	f	file:
-get_hash	tmp/dkh/arc.c	/^static int *get_hash(char *ret, double test)$/;"	f	file:
 hash	dkh/arc.c	/^  struct arc_hash hash;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::arc_hash	file:
 hash	dkh/arc.c	/^  struct list_head hash;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head	file:
-hash	tmp/dkh/arc.c	/^  struct arc_hash hash;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::arc_hash	file:
-hash	tmp/dkh/arc.c	/^  struct list_head hash;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head	file:
 hash_64	dkh/hash.h	/^static __always_inline unsigned int hash_64(unsigned int val, unsigned int bits)$/;"	f
-hash_64	tmp/dkh/hash.h	/^static __always_inline unsigned int hash_64(unsigned int val, unsigned int bits)$/;"	f
 hash_insert	dkh/arc.c	/^void hash_insert(struct cache_mem *cm, struct cache_line *l)$/;"	f
-hash_insert	tmp/dkh/arc.c	/^void hash_insert(struct cache_mem *cm, struct cache_line *l)$/;"	f
 hash_row	dkh/hash.h	/^struct hash_row$/;"	s
-hash_row	tmp/dkh/hash.h	/^struct hash_row$/;"	s
 hash_table	dkh/hash.h	/^struct hash_table$/;"	s
-hash_table	tmp/dkh/hash.h	/^struct hash_table$/;"	s
 head	dkh/arc.c	/^  struct list_head head;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head	file:
 head	dkh/arc.c	/^  struct list_head head;$/;"	m	struct:cache_state	typeref:struct:cache_state::list_head	file:
 head	dkh/hash.h	/^  struct list_head head;$/;"	m	struct:hash_row	typeref:struct:hash_row::list_head
 head	dkh/lru.h	/^  struct list_head head;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head
-head	tmp/dkh/arc.c	/^  struct list_head head;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head	file:
-head	tmp/dkh/arc.c	/^  struct list_head head;$/;"	m	struct:cache_state	typeref:struct:cache_state::list_head	file:
-head	tmp/dkh/hash.h	/^  struct list_head head;$/;"	m	struct:hash_row	typeref:struct:hash_row::list_head
-head	tmp/dkh/lru.h	/^  struct list_head head;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head
 hit	dkh/arc.c	/^  long hit;$/;"	m	struct:cache_mem	file:
 hit	dkh/lru.h	/^  long hit;$/;"	m	struct:cache_mem
-hit	tmp/dkh/arc.c	/^  long hit;$/;"	m	struct:cache_mem	file:
-hit	tmp/dkh/lru.h	/^  long hit;$/;"	m	struct:cache_mem
 host	dkh/arc.c	/^  char *host;$/;"	m	struct:workload	file:
 host	dkh/lru.h	/^  char *host;$/;"	m	struct:workload
-host	tmp/dkh/arc.c	/^  char *host;$/;"	m	struct:workload	file:
-host	tmp/dkh/lru.h	/^  char *host;$/;"	m	struct:workload
 init_cache_mem	dkh/arc.c	/^struct cache_mem *init_cache_mem(unsigned long c)$/;"	f
 init_cache_mem	dkh/lru.h	/^struct cache_mem *init_cache_mem(long m)$/;"	f
-init_cache_mem	tmp/dkh/arc.c	/^struct cache_mem *init_cache_mem(unsigned long c)$/;"	f
-init_cache_mem	tmp/dkh/lru.h	/^struct cache_mem *init_cache_mem(long m)$/;"	f
 init_hash	dkh/hash.h	/^struct hash_table *init_hash(int len)$/;"	f
-init_hash	tmp/dkh/hash.h	/^struct hash_table *init_hash(int len)$/;"	f
 init_hash_list	dkh/arc.c	/^int init_hash_list(struct cache_mem *cm, unsigned long s)$/;"	f
-init_hash_list	tmp/dkh/arc.c	/^int init_hash_list(struct cache_mem *cm, unsigned long s)$/;"	f
 init_list	dkh/dk_list.h	/^static inline void init_list(struct list_head *head)$/;"	f
-init_list	tmp/dkh/dk_list.h	/^static inline void init_list(struct list_head *head)$/;"	f
 init_lnode	dkh/dk_list.h	/^struct list_head *init_lnode()$/;"	f
-init_lnode	tmp/dkh/dk_list.h	/^struct list_head *init_lnode()$/;"	f
 len	dkh/hash.h	/^  int len;$/;"	m	struct:hash_table
-len	tmp/dkh/hash.h	/^  int len;$/;"	m	struct:hash_table
 likely	dkh/compiler.h	60;"	d
-likely	tmp/dkh/compiler.h	60;"	d
 line	dkh/arc.c	/^  long line;$/;"	m	struct:cache_line	file:
 line	dkh/lru.h	/^  long line;$/;"	m	struct:cache_line
-line	tmp/dkh/arc.c	/^  long line;$/;"	m	struct:cache_line	file:
-line	tmp/dkh/lru.h	/^  long line;$/;"	m	struct:cache_line
 list	dkh/lru.h	/^  struct list_head *list;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::list_head
-list	tmp/dkh/lru.h	/^  struct list_head *list;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::list_head
 list_add	dkh/dk_list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f
-list_add	tmp/dkh/dk_list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f
 list_del	dkh/dk_list.h	/^static inline void list_del(struct list_head *entry)$/;"	f
-list_del	tmp/dkh/dk_list.h	/^static inline void list_del(struct list_head *entry)$/;"	f
 list_each	dkh/arc.c	31;"	d	file:
 list_each	dkh/arc.h	27;"	d
-list_each	tmp/dkh/arc.c	31;"	d	file:
-list_each	tmp/dkh/arc.h	27;"	d
 list_entry	dkh/arc.c	28;"	d	file:
 list_entry	dkh/arc.h	24;"	d
-list_entry	tmp/dkh/arc.c	28;"	d	file:
-list_entry	tmp/dkh/arc.h	24;"	d
 list_for_each	dkh/dk_list.h	33;"	d
-list_for_each	tmp/dkh/dk_list.h	33;"	d
 list_head	dkh/dk_list.h	/^struct list_head$/;"	s
-list_head	tmp/dkh/dk_list.h	/^struct list_head$/;"	s
 list_insert	dkh/dk_list.h	/^static inline void list_insert(struct list_head *list, struct list_head *prev, struct list_head *next)$/;"	f
-list_insert	tmp/dkh/dk_list.h	/^static inline void list_insert(struct list_head *list, struct list_head *prev, struct list_head *next)$/;"	f
 list_move	dkh/dk_list.h	/^static inline void list_move(struct list_head *list, struct list_head *head)$/;"	f
-list_move	tmp/dkh/dk_list.h	/^static inline void list_move(struct list_head *list, struct list_head *head)$/;"	f
 list_prepend	dkh/dk_list.h	/^static inline void list_prepend(struct list_head *head, struct list_head *list)$/;"	f
-list_prepend	tmp/dkh/dk_list.h	/^static inline void list_prepend(struct list_head *head, struct list_head *list)$/;"	f
 list_remove	dkh/dk_list.h	/^static inline void list_remove(struct list_head *head)$/;"	f
-list_remove	tmp/dkh/dk_list.h	/^static inline void list_remove(struct list_head *head)$/;"	f
 list_replace	dkh/dk_list.h	/^static inline void list_replace(struct list_head *old, struct list_head *new)$/;"	f
-list_replace	tmp/dkh/dk_list.h	/^static inline void list_replace(struct list_head *old, struct list_head *new)$/;"	f
 list_splice	dkh/dk_list.h	/^static inline void list_splice(struct list_head *prev, struct list_head *next)$/;"	f
-list_splice	tmp/dkh/dk_list.h	/^static inline void list_splice(struct list_head *prev, struct list_head *next)$/;"	f
 lookup_hash	dkh/hash.h	/^int lookup_hash(struct hash_table *ht)$/;"	f
-lookup_hash	tmp/dkh/hash.h	/^int lookup_hash(struct hash_table *ht)$/;"	f
 main	main.c	/^int main(int argc, char *argv[]){$/;"	f
-main	tmp/main.c	/^int main(int argc, char *argv[]){$/;"	f
 max	dkh/arc.c	/^  long max;$/;"	m	struct:cache_mem	file:
 max	dkh/lru.h	/^  long max;$/;"	m	struct:cache_mem
-max	tmp/dkh/arc.c	/^  long max;$/;"	m	struct:cache_mem	file:
-max	tmp/dkh/lru.h	/^  long max;$/;"	m	struct:cache_mem
 md5	dkh/arc.c	/^  unsigned char md5[33];$/;"	m	struct:cache_line	file:
-md5	tmp/dkh/arc.c	/^  unsigned char md5[33];$/;"	m	struct:cache_line	file:
 md5_INCLUDED	dkh/md5.h	51;"	d
-md5_INCLUDED	tmp/dkh/md5.h	51;"	d
 md5_append	dkh/md5.c	/^void md5_append(md5_state_t *pms, const md5_byte_t *data, int nbytes)$/;"	f
-md5_append	tmp/dkh/md5.c	/^void md5_append(md5_state_t *pms, const md5_byte_t *data, int nbytes)$/;"	f
 md5_byte_t	dkh/md5.h	/^typedef unsigned char md5_byte_t; \/* 8-bit byte *\/$/;"	t
-md5_byte_t	tmp/dkh/md5.h	/^typedef unsigned char md5_byte_t; \/* 8-bit byte *\/$/;"	t
 md5_finish	dkh/md5.c	/^void md5_finish(md5_state_t *pms, md5_byte_t digest[16])$/;"	f
-md5_finish	tmp/dkh/md5.c	/^void md5_finish(md5_state_t *pms, md5_byte_t digest[16])$/;"	f
 md5_init	dkh/md5.c	/^void md5_init(md5_state_t *pms)$/;"	f
-md5_init	tmp/dkh/md5.c	/^void md5_init(md5_state_t *pms)$/;"	f
 md5_process	dkh/md5.c	/^static void md5_process(md5_state_t *pms, const md5_byte_t *data \/*[64]*\/)$/;"	f	file:
-md5_process	tmp/dkh/md5.c	/^static void md5_process(md5_state_t *pms, const md5_byte_t *data \/*[64]*\/)$/;"	f	file:
 md5_state_s	dkh/md5.h	/^typedef struct md5_state_s {$/;"	s
-md5_state_s	tmp/dkh/md5.h	/^typedef struct md5_state_s {$/;"	s
 md5_state_t	dkh/md5.h	/^} md5_state_t;$/;"	t	typeref:struct:md5_state_s
-md5_state_t	tmp/dkh/md5.h	/^} md5_state_t;$/;"	t	typeref:struct:md5_state_s
 md5_word_t	dkh/md5.h	/^typedef unsigned int md5_word_t; \/* 32-bit word *\/$/;"	t
-md5_word_t	tmp/dkh/md5.h	/^typedef unsigned int md5_word_t; \/* 32-bit word *\/$/;"	t
 mfu	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
-mfu	tmp/dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
 mfug	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
-mfug	tmp/dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
 mru	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
-mru	tmp/dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::	file:
 mrug	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::cache_state	file:
-mrug	tmp/dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::cache_state	file:
 next	dkh/dk_list.h	/^  struct list_head *next;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
-next	tmp/dkh/dk_list.h	/^  struct list_head *next;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
 noinline	dkh/compiler.h	150;"	d
-noinline	tmp/dkh/compiler.h	150;"	d
 offset	dkh/arc.c	/^  double offset;$/;"	m	struct:workload	file:
 offset	dkh/lru.h	/^  double offset;$/;"	m	struct:workload
-offset	tmp/dkh/arc.c	/^  double offset;$/;"	m	struct:workload	file:
-offset	tmp/dkh/lru.h	/^  double offset;$/;"	m	struct:workload
 offsetof	dkh/dk_list.h	27;"	d
-offsetof	tmp/dkh/dk_list.h	27;"	d
 open_workload	dkh/arc.c	/^FILE *open_workload(char *file)$/;"	f
 open_workload	dkh/lru.h	/^FILE *open_workload(char *file)$/;"	f
-open_workload	tmp/dkh/arc.c	/^FILE *open_workload(char *file)$/;"	f
-open_workload	tmp/dkh/lru.h	/^FILE *open_workload(char *file)$/;"	f
 p	dkh/arc.c	/^  long c, p;$/;"	m	struct:cache_mem	file:
 p	dkh/hash.h	/^  void *p;$/;"	m	struct:hash_row
-p	tmp/dkh/arc.c	/^  unsigned long c, p;$/;"	m	struct:cache_mem	file:
-p	tmp/dkh/hash.h	/^  void *p;$/;"	m	struct:hash_row
 prev	dkh/dk_list.h	/^  struct list_head *prev;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
-prev	tmp/dkh/dk_list.h	/^  struct list_head *prev;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
 print_cm	dkh/arc.c	/^int print_cm(struct cache_mem *cm)$/;"	f
 print_cm	dkh/lru.h	/^int print_cm(struct cache_mem *cm)$/;"	f
-print_cm	tmp/dkh/arc.c	/^int print_cm(struct cache_mem *cm)$/;"	f
-print_cm	tmp/dkh/lru.h	/^int print_cm(struct cache_mem *cm)$/;"	f
 print_f	dkh/print_msg.h	20;"	d
-print_f	tmp/dkh/print_msg.h	20;"	d
 print_o	dkh/print_msg.h	21;"	d
-print_o	tmp/dkh/print_msg.h	21;"	d
 read	dkh/arc.c	/^  long read;$/;"	m	struct:cache_mem	file:
 read	dkh/lru.h	/^  long read;$/;"	m	struct:cache_mem
-read	tmp/dkh/arc.c	/^  long read;$/;"	m	struct:cache_mem	file:
-read	tmp/dkh/lru.h	/^  long read;$/;"	m	struct:cache_mem
 read_column	dkh/arc.c	/^int read_column(struct workload *wl, char *buf)$/;"	f
 read_column	dkh/lru.h	/^int read_column(struct workload *wl, char *buf)$/;"	f
-read_column	tmp/dkh/arc.c	/^int read_column(struct workload *wl, char *buf)$/;"	f
-read_column	tmp/dkh/lru.h	/^int read_column(struct workload *wl, char *buf)$/;"	f
 read_workload	dkh/arc.c	/^int read_workload(FILE *fp, long cache_size)$/;"	f
 read_workload	dkh/lru.h	/^int read_workload(FILE *fp, long cache_size)$/;"	f
-read_workload	tmp/dkh/arc.c	/^int read_workload(FILE *fp, long cache_size)$/;"	f
-read_workload	tmp/dkh/lru.h	/^int read_workload(FILE *fp, long cache_size)$/;"	f
 report_cm	dkh/arc.c	/^void report_cm(struct cache_mem *cm)$/;"	f
 report_cm	dkh/lru.h	/^void report_cm(struct cache_mem *cm)$/;"	f
-report_cm	tmp/dkh/arc.c	/^void report_cm(struct cache_mem *cm)$/;"	f
-report_cm	tmp/dkh/lru.h	/^void report_cm(struct cache_mem *cm)$/;"	f
 respone	dkh/arc.c	/^  long respone; \/\/respones time$/;"	m	struct:workload	file:
 respone	dkh/lru.h	/^  long respone; \/\/respones time$/;"	m	struct:workload
-respone	tmp/dkh/arc.c	/^  long respone; \/\/respones time$/;"	m	struct:workload	file:
-respone	tmp/dkh/lru.h	/^  long respone; \/\/respones time$/;"	m	struct:workload
 row	dkh/hash.h	/^  struct hash_row *row;$/;"	m	struct:hash_table	typeref:struct:hash_table::hash_row
-row	tmp/dkh/hash.h	/^  struct hash_row *row;$/;"	m	struct:hash_table	typeref:struct:hash_table::hash_row
 run_cache	dkh/arc.c	/^int run_cache(struct cache_mem *cm, struct workload *wl)$/;"	f
 run_cache	dkh/lru.h	/^int run_cache(struct cache_mem *cm, struct workload *wl)$/;"	f
-run_cache	tmp/dkh/arc.c	/^int run_cache(struct cache_mem *cm, struct workload *wl)$/;"	f
-run_cache	tmp/dkh/lru.h	/^int run_cache(struct cache_mem *cm, struct workload *wl)$/;"	f
 size	dkh/arc.c	/^  double size;$/;"	m	struct:workload	file:
 size	dkh/arc.c	/^  long size;$/;"	m	struct:cache_mem	file:
 size	dkh/arc.c	/^  long size;$/;"	m	struct:cache_state	file:
 size	dkh/arc.c	/^  unsigned long size;$/;"	m	struct:arc_hash	file:
 size	dkh/lru.h	/^  double size;$/;"	m	struct:workload
 size	dkh/lru.h	/^  long size;$/;"	m	struct:cache_mem
-size	tmp/dkh/arc.c	/^  double size;$/;"	m	struct:workload	file:
-size	tmp/dkh/arc.c	/^  long size;$/;"	m	struct:cache_mem	file:
-size	tmp/dkh/arc.c	/^  unsigned long size;$/;"	m	struct:arc_hash	file:
-size	tmp/dkh/arc.c	/^  unsigned long size;$/;"	m	struct:cache_state	file:
-size	tmp/dkh/lru.h	/^  double size;$/;"	m	struct:workload
-size	tmp/dkh/lru.h	/^  long size;$/;"	m	struct:cache_mem
 state	dkh/arc.c	/^  struct cache_state *state;$/;"	m	struct:cache_line	typeref:struct:cache_line::cache_state	file:
-state	tmp/dkh/arc.c	/^  struct cache_state *state;$/;"	m	struct:cache_line	typeref:struct:cache_line::cache_state	file:
 time	dkh/arc.c	/^  char *time;$/;"	m	struct:workload	file:
 time	dkh/lru.h	/^  char *time;$/;"	m	struct:workload
-time	tmp/dkh/arc.c	/^  char *time;$/;"	m	struct:workload	file:
-time	tmp/dkh/lru.h	/^  char *time;$/;"	m	struct:workload
 type	dkh/arc.c	/^  int type;$/;"	m	struct:workload	file:
 type	dkh/lru.h	/^  int type;$/;"	m	struct:workload
-type	tmp/dkh/arc.c	/^  int type;$/;"	m	struct:workload	file:
-type	tmp/dkh/lru.h	/^  int type;$/;"	m	struct:workload
 unlikely	dkh/compiler.h	61;"	d
-unlikely	tmp/dkh/compiler.h	61;"	d
 workload	dkh/arc.c	/^struct workload$/;"	s	file:
 workload	dkh/lru.h	/^struct workload$/;"	s
-workload	tmp/dkh/arc.c	/^struct workload$/;"	s	file:
-workload	tmp/dkh/lru.h	/^struct workload$/;"	s
 write	dkh/arc.c	/^  long write;$/;"	m	struct:cache_mem	file:
 write	dkh/lru.h	/^  long write;$/;"	m	struct:cache_mem
-write	tmp/dkh/arc.c	/^  long write;$/;"	m	struct:cache_mem	file:
-write	tmp/dkh/lru.h	/^  long write;$/;"	m	struct:cache_mem
