@@ -181,8 +181,8 @@ disk_num	dkh/arc.c	/^  int disk_num;$/;"	m	struct:workload	file:
 disk_num	dkh/lru.h	/^  int disk_num;$/;"	m	struct:workload
 dk_list	dkh/dk_list.h	25;"	d
 err_test	dkh/print_msg.h	24;"	d
-get_hash	dkh/arc.c	/^static int *get_hash(char *ret, long long test, long long size)$/;"	f	file:
-get_hash_md5	dkh/arc.c	/^static int *get_hash_md5(char *ret, double test)$/;"	f	file:
+get_hash	dkh/arc.c	/^static int *get_hash(char *ret, long long line, long long size)$/;"	f	file:
+get_hash_md5	dkh/arc.c	/^static int *get_hash_md5(char *ret, long long test)$/;"	f	file:
 hash	dkh/arc.c	/^  struct arc_hash hash;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::arc_hash	file:
 hash	dkh/arc.c	/^  struct list_head hash;$/;"	m	struct:cache_line	typeref:struct:cache_line::list_head	file:
 hash_64	dkh/hash.h	/^static __always_inline unsigned int hash_64(unsigned int val, unsigned int bits)$/;"	f

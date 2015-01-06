@@ -99,6 +99,35 @@ struct cache_mem
   struct arc_hash hash;
 };/*}}}*/
 
+
+unsigned long atonum(char *c);
+int init_hash_list(struct cache_mem *cm, unsigned long s);
+struct cache_mem *init_cache_mem(unsigned long c);
+void report_cm(struct cache_mem *cm);
+int print_cm(struct cache_mem *cm);
+static int *get_hash(char *ret, long long test, long long size);
+static int *get_hash_md5(char *ret, long long test);
+struct cache_line *ARC_state_lru(struct cache_state *state);
+int contain_list(struct cache_mem *cm, struct cache_line *l);
+struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state);
+static void ARC_balance(struct cache_mem *cm, unsigned long size);
+static inline struct cache_line *ARC_print(struct list_head *start);
+int del_cm(struct cache_mem *cm);
+static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line);
+static struct cache_line *create_line(long long line, long long max);
+void hash_insert(struct cache_mem *cm, struct cache_line *l);
+struct cache_line *ARC_cache(struct cache_mem *cm, long long line);
+int run_cache(struct cache_mem *cm, struct workload *wl);
+FILE *open_workload(char *file);
+int read_column(struct workload *wl, char *buf);
+int read_workload(FILE *fp, long cache_size);
+
+/** 
+ * ASCII to long.
+ * Hash string to number.
+ * @param c : string
+ * @return : unsigned long type number.
+ */
 unsigned long atonum(char *c)
 {/*{{{*/
   unsigned long ret = 0;
@@ -110,21 +139,15 @@ unsigned long atonum(char *c)
   return ret;
 }/*}}}*/
 
-int init_hash_list(struct cache_mem *cm, unsigned long s);
-struct cache_mem *init_cache_mem(unsigned long c);
-void report_cm(struct cache_mem *cm);
-int print_cm(struct cache_mem *cm);
-static int *get_hash(char *ret, long long test, long long size);
-static int *get_hash_md5(char *ret, double test);
-struct cache_line *ARC_state_lru(struct cache_state *state);
-int contain_list(struct cache_mem *cm, struct cache_line *l);
-struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state);
-static void ARC_balance(struct cache_mem *cm, unsigned long size);
-static inline struct cache_line *ARC_print(struct list_head *start);
-
+/** 
+ * Init Hash table
+ * @param cm : cache mem.
+ * @param s : hash table size.
+ * @return : error code.
+ */
 int init_hash_list(struct cache_mem *cm, unsigned long s)
 {/*{{{*/
-  int i = 0;
+  long i = 0;
 
   cm->hash.size = s;
   cm->hash.bucket = malloc(s * sizeof(struct list_head));
@@ -148,11 +171,13 @@ struct cache_mem *init_cache_mem(unsigned long c)
   if (!(cm = malloc(sizeof(struct cache_mem))))
     return NULL;
 
+  /* Init list */
   init_list(&cm->mrug.head);
   init_list(&cm->mru.head);
   init_list(&cm->mfu.head);
   init_list(&cm->mfug.head);
 
+  /* Init c & p */
   cm->c = c;
   cm->p = c >> 1;
 
@@ -220,16 +245,26 @@ int print_cm(struct cache_mem *cm)
   return 0;
 }/*}}}*/
 
-static int *get_hash(char *ret, long long test, long long size)
+/**
+ * get hash number. and saved ret.
+ * @param ret : saved string pointer
+ * @param line : line number. hash target.
+ * @param size : max size.
+ * @return : 0.
+ */
+static int *get_hash(char *ret, long long line, long long size)
 {/*{{{*/
 
-  sprintf(ret, "%lld", test % size);
+  sprintf(ret, "%lld", line % size);
 
   return 0;
 	// return hex_output;
 }/*}}}*/
 
-static int *get_hash_md5(char *ret, double test)
+/**
+ * Tmp. Kill Me.
+ */
+static int *get_hash_md5(char *ret, long long test)
 {/*{{{*/
 	md5_state_t state;
 	md5_byte_t digest[16];
@@ -251,13 +286,20 @@ static int *get_hash_md5(char *ret, double test)
 	// return hex_output;
 }/*}}}*/
 
-/*  Return the LRU element from the given state. */
+/**  
+ * Return the LRU element from the given state. 
+ * @param state : list pointer.
+ * @return : LRU element from the given state.
+ */
 struct cache_line *ARC_state_lru(struct cache_state *state)
 {/*{{{*/
   struct list_head *head = state->head.prev;
   return list_entry(head, struct cache_line, head);
 }/*}}}*/
 
+/**  
+ * For debug... print info.
+ */
 int contain_list(struct cache_mem *cm, struct cache_line *l)
 {/*{{{*/
   if (!cm || !l || !l->state)
@@ -278,6 +320,13 @@ int contain_list(struct cache_mem *cm, struct cache_line *l)
   }
 }/*}}}*/
 
+/**
+ * ARC move.
+ * @param cm : cache memory pointer.
+ * @param l : target cache line.
+ * @param state : target place.
+ * @return : line (TODO : change >> void)
+ */
 struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) 
 {/*{{{*/
 
@@ -326,8 +375,12 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
   return l;
 }/*}}}*/
 
-/*  Balance the lists so that we can fit an object with the given size into
- * the cache. */
+/**
+ * Balance the lists so that we can fit an object with the given size into
+ * the cache. 
+ * @param cm : cahce memory.
+ * @param size : added size.
+ */
 static void ARC_balance(struct cache_mem *cm, unsigned long size)
 {/*{{{*/
 
@@ -365,6 +418,9 @@ static void ARC_balance(struct cache_mem *cm, unsigned long size)
   /* printf("bal : end \n"); */
 }/*}}}*/
 
+/**
+ * For debug...
+ */
 static inline struct cache_line *ARC_print(struct list_head *start)
 {/*{{{*/
   struct list_head *tmp = NULL;
@@ -386,8 +442,8 @@ static inline struct cache_line *ARC_print(struct list_head *start)
 
 /**
  * Del cache memory.(cache list)
- * @param cm : cache memory struct
- * @return : error code
+ * @param cm : cache memory struct.
+ * @return : error code.
  */
 int del_cm(struct cache_mem *cm)
 {/*{{{*/
@@ -418,6 +474,11 @@ int del_cm(struct cache_mem *cm)
   return 0;
 }/*}}}*/
 
+/**
+ * Lookup node to list.
+ * @param cm : cache memory.
+ * @param line : terget line.
+ */
 static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line)
 {/*{{{*/
   struct list_head *tmp = NULL;
@@ -442,6 +503,12 @@ static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line
   return NULL;
 }/*}}}*/
 
+/**
+ * Make new line.
+ * @param line : line.
+ * @param max : for hash modular.
+ * @return : new cache line.
+ */
 static struct cache_line *create_line(long long line, long long max)
 {/*{{{*/
   struct cache_line *l = malloc(sizeof(struct cache_line));
@@ -462,12 +529,23 @@ static struct cache_line *create_line(long long line, long long max)
   return l;
 }/*}}}*/
 
+/**  
+ * insert hash.
+ * @param cm : cache memory.
+ * @param l : line.
+ */
 void hash_insert(struct cache_mem *cm, struct cache_line *l)
 {/*{{{*/
   unsigned long hash = atonum(l->md5) % (cm->c);
   list_prepend(&l->hash, &cm->hash.bucket[hash]);
 }/*}}}*/
 
+/**
+ * XXX : ARC Main function...!!
+ * cache line.
+ * @param cm : cache memory.
+ * @param line : line
+ */
 struct cache_line *ARC_cache(struct cache_mem *cm, long long line)
 {/*{{{*/
   /* TODO : .... */
