@@ -241,7 +241,7 @@ mru	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_me
 mrug	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::cache_state	file:
 next	dkh/dk_list.h	/^  struct list_head *next;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
 noinline	dkh/compiler.h	150;"	d
-offset	dkh/arc.c	/^  double offset;$/;"	m	struct:workload	file:
+offset	dkh/arc.c	/^  long long offset;$/;"	m	struct:workload	file:
 offset	dkh/lru.h	/^  unsigned long long offset;$/;"	m	struct:workload
 offsetof	dkh/dk_list.h	27;"	d
 open_workload	dkh/arc.c	/^FILE *open_workload(char *file)$/;"	f
