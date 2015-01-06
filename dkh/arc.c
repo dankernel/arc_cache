@@ -57,7 +57,7 @@ struct workload
   int disk_num;
   int type;
   long long offset;
-  double size;
+  long size;
   long respone; //respones time
 
 };/*}}}*/
