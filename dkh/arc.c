@@ -114,7 +114,8 @@ int init_hash_list(struct cache_mem *cm, unsigned long s);
 struct cache_mem *init_cache_mem(unsigned long c);
 void report_cm(struct cache_mem *cm);
 int print_cm(struct cache_mem *cm);
-static int *get_hash(char *ret, double test);
+static int *get_hash(char *ret, long long test);
+static int *get_hash_md5(char *ret, double test);
 struct cache_line *ARC_state_lru(struct cache_state *state);
 int contain_list(struct cache_mem *cm, struct cache_line *l);
 struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state);
@@ -219,7 +220,29 @@ int print_cm(struct cache_mem *cm)
   return 0;
 }/*}}}*/
 
-static int *get_hash(char *ret, double test)
+static int *get_hash(char *ret, long long test)
+{/*{{{*/
+	md5_state_t state;
+	md5_byte_t digest[16];
+	char hex_output[16*2 + 1];
+	int di;
+  char str[33] = {'\0', };
+
+  sprintf(str, "%f", test);
+
+	md5_init(&state);
+	md5_append(&state, (const md5_byte_t *)str, strlen(str));
+	md5_finish(&state, digest);
+
+	for (di = 0; di < 16; ++di)
+		sprintf(hex_output + di * 2, "%02x", digest[di]);
+
+  strcpy(ret, hex_output);
+  return 0;
+	// return hex_output;
+}/*}}}*/
+
+static int *get_hash_md5(char *ret, double test)
 {/*{{{*/
 	md5_state_t state;
 	md5_byte_t digest[16];
@@ -271,8 +294,8 @@ int contain_list(struct cache_mem *cm, struct cache_line *l)
 struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) 
 {/*{{{*/
 
-  printf("this %p %p %p %lld ", &l->head, &l->hash, l, l->line);
-  contain_list(cm, l);
+  /* printf("this %p %p %p %lld ", &l->head, &l->hash, l, l->line); */
+  /* contain_list(cm, l); */
 
   //이미 있는거 제거..//
   if (l->state) {
@@ -281,11 +304,10 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     list_remove(&l->head);
   }
 
-  // 그냥 제거..//
+  /* destroy */
   if (state == NULL) {
-    /* destroy */
-    printf("del %lld ", l->line);
-    contain_list(cm, l);
+    /* printf("del %lld ", l->line); */
+    /* contain_list(cm, l); */
 
     l->line = 0;
     l->state = NULL;
@@ -299,8 +321,9 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     if (state == &cm->mrug || state == &cm->mfug) {
 
     } else if (l->state != &cm->mru && l->state != &cm->mfu) {
-      printf("bal %p %p %p %lld ", &l->head, &l->hash, l, l->line);
-      contain_list(cm, l);
+      /* printf("bal %p %p %p %lld ", &l->head, &l->hash, l, l->line); */
+      /* contain_list(cm, l); */
+
       ARC_balance(cm, 1);
     }
 
@@ -308,10 +331,9 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     l->state = state;
     l->state->size += 1;
 
-    printf("move %p %p %p %lld ", &l->head, &l->hash, l, l->line);
-    contain_list(cm, l);
-
-    printf("move %p ok. head : %p / size : %lu / val : %lld \n", l, &state->head, l->state->size, l->line);
+    /* printf("move %p %p %p %lld ", &l->head, &l->hash, l, l->line); */
+    /* contain_list(cm, l); */
+    /* printf("move %p ok. head : %p / size : %lu / val : %lld \n", l, &state->head, l->state->size, l->line); */
 
   }
   return l;
@@ -409,7 +431,7 @@ int del_cm(struct cache_mem *cm)
   return 0;
 }/*}}}*/
 
-static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long line)
+static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line)
 {/*{{{*/
   struct list_head *tmp = NULL;
   unsigned long hash_num = NULL;
@@ -433,7 +455,7 @@ static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long line)
   return NULL;
 }/*}}}*/
 
-static struct cache_line *create_line(double line)
+static struct cache_line *create_line(long long line)
 {/*{{{*/
   struct cache_line *l = malloc(sizeof(struct cache_line));
 
@@ -459,7 +481,7 @@ void hash_insert(struct cache_mem *cm, struct cache_line *l)
   list_prepend(&l->hash, &cm->hash.bucket[hash]);
 }/*}}}*/
 
-struct cache_line *ARC_cache(struct cache_mem *cm, long line)
+struct cache_line *ARC_cache(struct cache_mem *cm, long long line)
 {/*{{{*/
   /* TODO : .... */
   struct cache_line *lookup = NULL;
@@ -472,24 +494,27 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     /* cm->hit++; */
     /* printf("hit %s\n", lookup->md5); */
     if (lookup->state == &cm->mru || lookup->state == &cm->mfu) {
-      printf("== 01 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
+      /* printf("== 01 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else if (lookup->state == &cm->mrug) {
-      printf("== 02 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
-      contain_list(cm, lookup);
+      /* printf("== 02 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+      /* contain_list(cm, lookup); */
 
-      printf("chp1 : %ld \n", cm->p);
-      cm->p = MIN(cm->c, cm->p + MAX(cm->mfug.size / cm->mrug.size, 1));
-      printf("chp2 : %ld \n", cm->p);
+      /* printf("chp1 : %ld \n", cm->p); */
+      /* cm->p = MIN(cm->c, cm->p + MAX(cm->mfug.size / cm->mrug.size, 1)); */
+      /* printf("chp2 : %ld \n", cm->p); */
+
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else if (lookup->state == &cm->mfug) {
-      printf("== 03 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
+      /* printf("== 03 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
 
-      printf("chp1 : %ld, test : %ld\n", cm->p, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1));
-      cm->p = MAX(0, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1));
-      printf("chp2 : %ld \n", cm->p);
+      /* printf("chp1 : %ld, test : %ld\n", cm->p, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1)); */
+      /* cm->p = MAX(0, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1)); */
+      /* printf("chp2 : %ld \n", cm->p); */
+
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else {
@@ -499,7 +524,8 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
   } else {
 
     /* Case4 : New line */
-    printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
+    /* printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
+
     new = create_line(line);
     if (!new)
       return NULL;
@@ -522,8 +548,8 @@ int run_cache(struct cache_mem *cm, struct workload *wl)
 {/*{{{*/
   int i = 0;
   struct cache_line *ret = NULL;
-  long start = 0;
-  long end = 0;
+  long long start = 0;
+  long long end = 0;
 
   /* NULL arg */
   if (!cm || !wl) {
@@ -561,7 +587,7 @@ int run_cache(struct cache_mem *cm, struct workload *wl)
        cm->read++;
        if (ret) {
          cm->hit++;
-         printf(">> hit\n");
+         /* printf(">> hit\n"); */
        }
      } else if (wl->type == WRITE) {
        cm->write++;
