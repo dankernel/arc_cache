@@ -212,7 +212,7 @@ int print_cm(struct cache_mem *cm)
     tmp = tmp->next;
     l = container_of(tmp, struct cache_line, head);
 
-    printf("LIST : %10d %10ld \n", i, l->line);
+    printf("LIST : %10d %10lld \n", i, l->line);
     i++;
   }
 
@@ -271,7 +271,7 @@ int contain_list(struct cache_mem *cm, struct cache_line *l)
 struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct cache_state *state) 
 {/*{{{*/
 
-  printf("this %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+  printf("this %p %p %p %lld ", &l->head, &l->hash, l, l->line);
   contain_list(cm, l);
 
   //이미 있는거 제거..//
@@ -284,7 +284,7 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
   // 그냥 제거..//
   if (state == NULL) {
     /* destroy */
-    printf("del %ld ", l->line);
+    printf("del %lld ", l->line);
     contain_list(cm, l);
 
     l->line = 0;
@@ -299,7 +299,7 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     if (state == &cm->mrug || state == &cm->mfug) {
 
     } else if (l->state != &cm->mru && l->state != &cm->mfu) {
-      printf("bal %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+      printf("bal %p %p %p %lld ", &l->head, &l->hash, l, l->line);
       contain_list(cm, l);
       ARC_balance(cm, 1);
     }
@@ -308,10 +308,10 @@ struct cache_line *ARC_move(struct cache_mem *cm, struct cache_line *l, struct c
     l->state = state;
     l->state->size += 1;
 
-    printf("move %p %p %p %ld ", &l->head, &l->hash, l, l->line);
+    printf("move %p %p %p %lld ", &l->head, &l->hash, l, l->line);
     contain_list(cm, l);
 
-    printf("move %p ok. head : %p / size : %lu / val : %ld \n", l, &state->head, l->state->size, l->line);
+    printf("move %p ok. head : %p / size : %lu / val : %lld \n", l, &state->head, l->state->size, l->line);
 
   }
   return l;
@@ -369,7 +369,7 @@ static inline struct cache_line *ARC_print(struct list_head *start)
   list_each(tmp, start) {
     l = container_of(tmp, struct cache_line, head);
     //print index, &list_head, &list, line..//
-    printf("%10d %p %p %ld\n", i++, tmp, l, l->line);
+    printf("%10d %p %p %lld\n", i++, tmp, l, l->line);
   }
 
   return NULL;
