@@ -79,7 +79,7 @@ struct cache_state
 
 struct arc_hash
 {/*{{{*/
-  unsigned long size;
+  long long size;
   struct list_head *bucket;
 };/*}}}*/
 
@@ -114,7 +114,7 @@ int init_hash_list(struct cache_mem *cm, unsigned long s);
 struct cache_mem *init_cache_mem(unsigned long c);
 void report_cm(struct cache_mem *cm);
 int print_cm(struct cache_mem *cm);
-static int *get_hash(char *ret, long long test);
+static int *get_hash(char *ret, long long test, long long size);
 static int *get_hash_md5(char *ret, double test);
 struct cache_line *ARC_state_lru(struct cache_state *state);
 int contain_list(struct cache_mem *cm, struct cache_line *l);
@@ -220,24 +220,11 @@ int print_cm(struct cache_mem *cm)
   return 0;
 }/*}}}*/
 
-static int *get_hash(char *ret, long long test)
+static int *get_hash(char *ret, long long test, long long size)
 {/*{{{*/
-	md5_state_t state;
-	md5_byte_t digest[16];
-	char hex_output[16*2 + 1];
-	int di;
-  char str[33] = {'\0', };
 
-  sprintf(str, "%f", test);
+  sprintf(ret, "%lld", test % size);
 
-	md5_init(&state);
-	md5_append(&state, (const md5_byte_t *)str, strlen(str));
-	md5_finish(&state, digest);
-
-	for (di = 0; di < 16; ++di)
-		sprintf(hex_output + di * 2, "%02x", digest[di]);
-
-  strcpy(ret, hex_output);
   return 0;
 	// return hex_output;
 }/*}}}*/
@@ -250,7 +237,7 @@ static int *get_hash_md5(char *ret, double test)
 	int di;
   char str[33] = {'\0', };
 
-  sprintf(str, "%f", test);
+  sprintf(str, "%lld", test);
 
 	md5_init(&state);
 	md5_append(&state, (const md5_byte_t *)str, strlen(str));
@@ -440,7 +427,7 @@ static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line
   if (!cm || line < 0)
     return NULL;
 
-  get_hash(hash_str, line);
+  get_hash(hash_str, line, cm->hash.size);
 
   // Get hash.. //
   hash_num = atonum(hash_str) % (cm->hash.size);
@@ -455,7 +442,7 @@ static inline struct cache_line *ARC_lookup(struct cache_mem *cm, long long line
   return NULL;
 }/*}}}*/
 
-static struct cache_line *create_line(long long line)
+static struct cache_line *create_line(long long line, long long max)
 {/*{{{*/
   struct cache_line *l = malloc(sizeof(struct cache_line));
 
@@ -465,7 +452,7 @@ static struct cache_line *create_line(long long line)
   l->line = line;
 
   // Init hash..//
-  get_hash(l->md5, line);
+  get_hash(l->md5, line, max);
   /* printf("create : %s\n", l->md5); */
 
   // Init list..//
@@ -526,7 +513,7 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long long line)
     /* Case4 : New line */
     /* printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size); */
 
-    new = create_line(line);
+    new = create_line(line, cm->hash.size);
     if (!new)
       return NULL;
 
