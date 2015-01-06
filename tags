@@ -204,7 +204,7 @@ init_list	dkh/dk_list.h	/^static inline void init_list(struct list_head *head)$/
 init_lnode	dkh/dk_list.h	/^struct list_head *init_lnode()$/;"	f
 len	dkh/hash.h	/^  int len;$/;"	m	struct:hash_table
 likely	dkh/compiler.h	60;"	d
-line	dkh/arc.c	/^  long line;$/;"	m	struct:cache_line	file:
+line	dkh/arc.c	/^  long long line;$/;"	m	struct:cache_line	file:
 line	dkh/lru.h	/^  long line;$/;"	m	struct:cache_line
 list	dkh/lru.h	/^  struct list_head *list;$/;"	m	struct:cache_mem	typeref:struct:cache_mem::list_head
 list_add	dkh/dk_list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	f
@@ -242,7 +242,7 @@ mrug	dkh/arc.c	/^  struct cache_state mrug, mru, mfu, mfug;$/;"	m	struct:cache_m
 next	dkh/dk_list.h	/^  struct list_head *next;$/;"	m	struct:list_head	typeref:struct:list_head::list_head
 noinline	dkh/compiler.h	150;"	d
 offset	dkh/arc.c	/^  double offset;$/;"	m	struct:workload	file:
-offset	dkh/lru.h	/^  double offset;$/;"	m	struct:workload
+offset	dkh/lru.h	/^  unsigned long long offset;$/;"	m	struct:workload
 offsetof	dkh/dk_list.h	27;"	d
 open_workload	dkh/arc.c	/^FILE *open_workload(char *file)$/;"	f
 open_workload	dkh/lru.h	/^FILE *open_workload(char *file)$/;"	f
@@ -270,8 +270,8 @@ size	dkh/arc.c	/^  double size;$/;"	m	struct:workload	file:
 size	dkh/arc.c	/^  long size;$/;"	m	struct:cache_mem	file:
 size	dkh/arc.c	/^  long size;$/;"	m	struct:cache_state	file:
 size	dkh/arc.c	/^  unsigned long size;$/;"	m	struct:arc_hash	file:
-size	dkh/lru.h	/^  double size;$/;"	m	struct:workload
 size	dkh/lru.h	/^  long size;$/;"	m	struct:cache_mem
+size	dkh/lru.h	/^  long size;$/;"	m	struct:workload
 state	dkh/arc.c	/^  struct cache_state *state;$/;"	m	struct:cache_line	typeref:struct:cache_line::cache_state	file:
 time	dkh/arc.c	/^  char *time;$/;"	m	struct:workload	file:
 time	dkh/lru.h	/^  char *time;$/;"	m	struct:workload

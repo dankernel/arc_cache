@@ -31,8 +31,8 @@
 #define list_each(pos, head) \
   for (pos = (head)->next; pos != (head); pos = pos->next)
 
-#define MAX(a, b) ( (a) > (b) ? (a) : (b) )
-#define MIN(a, b) ( (a) < (b) ? (a) : (b) )
+#define MAX(a, b) ( (a > b) ? (a) : (b) )
+#define MIN(a, b) ( (a < b) ? (a) : (b) )
 
 /* READ WRITE FLAGS */
 #define READ  1
@@ -64,7 +64,7 @@ struct workload
 
 struct cache_line
 {/*{{{*/
-  long line;
+  long long line;
   struct list_head head;
   struct list_head hash;
   struct cache_state *state;
@@ -478,12 +478,6 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     } else if (lookup->state == &cm->mrug) {
       printf("== 02 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
       contain_list(cm, lookup);
-      
-      /* if (cm->mrug.size == 0) { */
-      /*   printf("lookup state list ...\n"); */
-      /*   contain_list(cm, lookup); */
-      /*   ARC_print(&(lookup->state->head)); */
-      /* } */
 
       printf("chp1 : %ld \n", cm->p);
       cm->p = MIN(cm->c, cm->p + MAX(cm->mfug.size / cm->mrug.size, 1));
@@ -493,9 +487,9 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     } else if (lookup->state == &cm->mfug) {
       printf("== 03 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
 
-      /* printf("chp1 : %ld, test : %ld\n", cm->p, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1)); */
+      printf("chp1 : %ld, test : %ld\n", cm->p, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1));
       cm->p = MAX(0, cm->p - MAX(cm->mrug.size / cm->mfug.size, 1));
-      /* printf("chp2 : %ld \n", cm->p); */
+      printf("chp2 : %ld \n", cm->p);
       ARC_move(cm, lookup, &cm->mfu);
       return lookup;
     } else {
@@ -504,13 +498,13 @@ struct cache_line *ARC_cache(struct cache_mem *cm, long line)
     }
   } else {
 
+    /* Case4 : New line */
     printf("== 04 %ld %ld %ld %ld\n", cm->mrug.size, cm->mru.size, cm->mfu.size, cm->mfug.size);
     new = create_line(line);
     if (!new)
       return NULL;
 
     hash_insert(cm, new);
-    /* return ARC_move(cm, new, &cm->mru); */
     ARC_move(cm, new, &cm->mru);
     return NULL;
   }
@@ -565,12 +559,13 @@ int run_cache(struct cache_mem *cm, struct workload *wl)
 
      if (wl->type == READ) {
        cm->read++;
-       if (ret)
+       if (ret) {
          cm->hit++;
+         printf(">> hit\n");
+       }
      } else if (wl->type == WRITE) {
        cm->write++;
      }
-     // printf("^ Is ret : %d\n", ret);
 
      i++;
    } while (start + i <= end);

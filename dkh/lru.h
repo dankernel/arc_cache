@@ -42,8 +42,8 @@ struct workload
   char *host;
   int disk_num;
   int type;
-  double offset;
-  double size;
+  unsigned long long offset;
+  long size;
   long respone; //respones time
 
 };/*}}}*/
@@ -410,7 +410,7 @@ int read_column(struct workload *wl, char *buf)
       // case 2 : wl->host = strdup(tmp); break;
       // case 3 : wl->disk_num = atoi(tmp); break;
       case 4 : (wl->type) = (strcmp(tmp, "Read") == 0) ? READ : WRITE; break;
-      case 5 : wl->offset = atol(tmp); break;
+      case 5 : wl->offset = atoll(tmp); break;
       case 6 : wl->size = atol(tmp); break;
       // case 7 : wl->respone = atol(tmp); break;
     }
